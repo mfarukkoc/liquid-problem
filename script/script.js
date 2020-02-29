@@ -1,17 +1,13 @@
 function Container (capacity, curLevel) {
     this.div = document.getElementById("liter-" + capacity);
-    this.levelNodes = this.div.querySelectorAll(".level");
+    this.ind = document.getElementById("ind-" + capacity);
     this.level = curLevel;
     this.capacity = capacity;
     this.setWaterLevel = (level) => {
-        if(level < this.level) {
-            for(let i = capacity - this.level; i < capacity - level; i++)
-                this.levelNodes[i].style.backgroundColor = "white";
-        }
-        else {
-            for(let i = capacity-1; i >= capacity - level; i--)
-                this.levelNodes[i].style.backgroundColor = "blue";
-        }
+        this.ind.classList.add("ind-animation");
+        setTimeout(() => { this.ind.classList.remove("ind-animation");}, 500);
+        setTimeout(() => { this.ind.innerHTML = level.toString()+"L";}, 500);
+        this.div.firstElementChild.style.height = (level / capacity * 100).toString() + "%";
         this.level = level;
     }
     this.setWaterLevel(curLevel);
@@ -29,21 +25,17 @@ function Container (capacity, curLevel) {
                 litersToMove = litersToMove > this.capacity - this.level ? this.capacity - this.level : litersToMove;
                 this.setWaterLevel(this.level + litersToMove);
                 firstContainer.container.setWaterLevel(firstContainer.container.level - litersToMove);
-                
                 console.log(litersToMove)
                 firstContainer.selected = false;
-                if(firstContainer.container.level == 4)
-                {
-                    console.log("You win")
-                    firstContainer.container.style.backgroundColor="red";
-                }
-                if (this.level == 4)
-                {
-                    this.div.style.backgroundColor = "red";
-                    console.log("You win")
-                }
-                moveHistory.push([firstContainer.container, this, litersToMove]);
+                moveHistory.push([firstContainer.container, this, litersToMove, new Date()]);
                 undoHistory.push([firstContainer.container, this, litersToMove]);
+                if(firstContainer.container.level == 4 || this.level == 4)
+                {
+                    console.log("You win in "+ moveHistory.length.toString() + " moves!")
+                    let time = (new Date() - moveHistory[0][3]) / 1000;
+                    time = Math.round(time);
+                    console.log("You win in "+ time.toString() + " seconds!");
+                }
             }
         }
     })
