@@ -29,8 +29,46 @@ html, body {
     backface-visibility: hidden;
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.1) 0 0 50px;
-    background: #F5F6F7; 
+    background: #F5F6F7;
 }
+
+#hint {
+    grid-column: 1 / -1;
+    grid-row: 2/3;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #F5F6F7;
+    margin-top: -8em !important;
+}
+
+#hint .hint-text {
+    position: absolute;
+    font-size: 8em;
+}
+
+#hint .hint-text:nth-child(1) {
+    color:transparent;
+    -webkit-text-stroke: 2px #04ACFF;
+}
+
+#hint .hint-text:nth-child(2) {
+    color:#04ACFF;
+    animation: animate 3s ease-in-out infinite;
+}
+
+@keyframes animate {
+    0%, 100% {
+        clip-path: polygon(0% 51%, 4% 48%, 12% 44%, 19% 44%, 24% 48%, 33% 54%, 39% 58%, 48% 61%, 58% 62%, 68% 62%, 77% 62%, 86% 59%, 93% 54%, 100% 50%, 100% 100%, 0% 100%);
+    }
+
+    50% {
+        clip-path: polygon(0% 51%, 5% 58%, 15% 62%, 23% 58%, 30% 49%, 37% 39%, 48% 32%, 59% 36%, 66% 41%, 71% 48%, 78% 56%, 86% 61%, 94% 59%, 100% 54%, 100% 100%, 0% 100%);
+
+    }
+}
+
 
 .container:hover {
     box-shadow: rgba(0, 0, 0, 0.2) 0 0 50px;
@@ -197,6 +235,7 @@ html, body {
 @media screen and (max-width: 992px) {
     
     .container {
+        margin-top: 10px;
         height: 35vh;
         padding-top: 1px;
         border: 1px black solid;
@@ -206,9 +245,21 @@ html, body {
         box-shadow: none;
     }
     body {
+        grid-template-rows: auto auto auto;
         gap: 2vw;
         padding: 0.2vh 0.2vw;
     }
+
+    #hint {
+        grid-row: 2/3;
+        grid-column: 1 / -1;
+        margin-top: -2em !important;
+    }
+
+    .hint-text {
+        font-size: 3em !important;
+    }
+
     #parent-liter-3 {
         grid-column: 1 / span 6;
         
@@ -220,7 +271,7 @@ html, body {
     
     #parent-liter-8 {
         grid-column: 1 / span 16;
-        grid-row: 2/3;
+        grid-row: 3/4;
     }
 
     .arrow-wrap {
@@ -334,7 +385,7 @@ html, body {
 
   .arrow-wrap {
     width: 10vw;
-    margin: 30px auto;
+    margin:30px auto 0 auto;
   }
 
   @keyframes shake-up {
