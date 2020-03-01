@@ -82,3 +82,7 @@ const undo = () => {
 document.getElementById("welcome").addEventListener("click",(e) => {
     document.getElementById("welcome").style.height = "0"
 })
+
+document.getElementById("reset").addEventListener("click",(e) => {
+    setTimeout(()=> {location.reload()}, 500) ;
+})

@@ -73,6 +73,9 @@ html, body {
     bottom: -5%;
 }
 
+#welcome:hover {
+    cursor: pointer;
+}
 
 #win {
     height: 0%;
@@ -109,6 +112,26 @@ html, body {
     transition: 1s;
     overflow: hidden;
 }
+
+#reset {
+    padding: 10px;
+    border: 1px solid rgb(5, 133, 197);
+    border-radius: 10px;
+    margin-top: 30%;
+    font-size: 2em;
+    background: rgb(5, 133, 197);
+}
+
+#reset:hover {
+    cursor: pointer;
+}
+
+#reset:active {
+    -moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000;
+}
+
 
 
 @keyframes fill-in {
@@ -216,6 +239,14 @@ html, body {
     #win-statistics, #sub-info {
         font-size: 1.2em;
     }
+
+    #reset {
+        padding: 10px;
+        border-radius: 8px;
+        margin-top: 5px;
+        font-size: 1em;
+    }
+    
 
     .capacity {
         font-size: 15px;
