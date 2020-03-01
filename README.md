@@ -1,1 +1,2 @@
-# liquid-problem
+# [liquid-problem](https://mfarukkoc.github.io/calculator/)
+A game you will try to achieve 4L liquid by transferring between containers.
