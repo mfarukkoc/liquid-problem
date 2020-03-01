@@ -216,6 +216,10 @@ html, body {
     #win-statistics, #sub-info {
         font-size: 1.2em;
     }
+
+    .capacity {
+        font-size: 15px;
+    }
   }
 
   .line-to-arrow {
