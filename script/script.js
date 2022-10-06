@@ -5,13 +5,14 @@ function Container(capacity, curLevel) {
   this.level = curLevel;
   this.capacity = capacity;
   this.setWaterLevel = (level) => {
+    const animationDuration = 500;
     this.ind.classList.add("ind-animation");
     setTimeout(() => {
       this.ind.classList.remove("ind-animation");
-    }, 400);
+    }, animationDuration);
     setTimeout(() => {
       this.ind.innerHTML = level.toString() + "L";
-    }, 400);
+    }, animationDuration);
     this.div.children[1].style.height =
       ((level / capacity) * 100).toString() + "%";
     this.level = level;
