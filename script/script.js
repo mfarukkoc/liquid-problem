@@ -8,10 +8,10 @@ function Container(capacity, curLevel) {
     this.ind.classList.add("ind-animation");
     setTimeout(() => {
       this.ind.classList.remove("ind-animation");
-    }, 500);
+    }, 400);
     setTimeout(() => {
       this.ind.innerHTML = level.toString() + "L";
-    }, 500);
+    }, 400);
     this.div.children[1].style.height =
       ((level / capacity) * 100).toString() + "%";
     this.level = level;
